@@ -18,6 +18,7 @@ class Course(models.Model):
     description = models.TextField(
         verbose_name="Описание курса", help_text="Опишите курс"
     )
+    owner = models.ForeignKey('users.User', on_delete=models.CASCADE, blank=True, null=True, verbose_name="владелец", help_text="Укажите владельца курса")
 
     def __str__(self):
         return self.title
@@ -54,6 +55,7 @@ class Lesson(models.Model):
     course = models.ForeignKey(
         Course, on_delete=models.SET_NULL, null=True, related_name="уроки"
     )
+    owner = models.ForeignKey('users.User', on_delete=models.CASCADE, blank=True, null=True,  verbose_name="владелец", help_text="Укажите владельца")
 
     def __str__(self):
         return self.title
