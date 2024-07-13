@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "users",
     "course",
     "rest_framework_simplejwt",
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
