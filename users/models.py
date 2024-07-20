@@ -50,6 +50,7 @@ class Payment(models.Model):
     paid_lesson = models.ForeignKey(Lesson, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Оплаченный урок")
     payment_amount = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Сумма оплаты")
     payment_method = models.CharField(max_length=15, choices=PAYMENT_METHOD_CHOICES, verbose_name="Способ оплаты")
+    link = models.URLField(max_length=400, verbose_name="Ссылка на оплату", help_text="ужажите ссылку на оплату", blank=True, null=True),
 
     class Meta:
         verbose_name = "Платеж"
