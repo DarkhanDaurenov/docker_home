@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Course(models.Model):
@@ -19,6 +20,7 @@ class Course(models.Model):
         verbose_name="Описание курса", help_text="Опишите курс"
     )
     owner = models.ForeignKey('users.User', on_delete=models.CASCADE, blank=True, null=True, verbose_name="владелец", help_text="Укажите владельца курса")
+    last_updated = models.DateTimeField(auto_now=True, verbose_name="Последнее обновление")
 
     def __str__(self):
         return self.title
